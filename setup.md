@@ -1,3 +1,5 @@
+- Setup NPM/Nodejs in container
+```shell
 docker run --name ubuntu-nodejs -i -d ubuntu:latest
 docker exec -it ubuntu-nodejs bash
 
@@ -8,8 +10,11 @@ curl -fsSL https://deb.nodesource.com/setup_$NPMVER.x | bash -
 apt-get install -y nodejs
 npm -version
 
-export repo=your-repo-url
 
+```
+- Clone and modify repository
+```shell
+export repo=your-repo-url
 git clone https://github.com/bkimminich/juice-shop.git && cd juice-shop
 git checkout -b main tags/v17.0.0
 git rm -rf .github 
@@ -34,3 +39,4 @@ git add setup.md
 git commit -a -m "lockfiles & legacy-peer-deps"
 git remote set-url origin $repo
 git push --set-upstream origin main
+```
